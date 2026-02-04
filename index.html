@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Ana e Felipe - Nosso Netflix ❤️</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #141414;
+      color: white;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      padding: 15px 30px;
+      background-color: #000;
+    }
+
+    .logo {
+      color: #e50914;
+      font-size: 24px;
+    }
+
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    .navbar li a {
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .navbar li a:hover {
+      color: #e50914;
+    }
+
+    .banner {
+      background: url("img/Firefly_Gemini Flash-01 (1).png") center/cover no-repeat;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 40px;
+    }
+
+    .banner-content {
+      max-width: 600px;
+    }
+
+    .serie-title {
+      font-size: 48px;
+      margin: 0;
+    }
+
+    .top10 {
+      background-color: #e50914;
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    .info {
+      margin: 10px 0;
+    }
+
+    .descricao {
+      margin: 20px 0;
+      line-height: 1.5;
+    }
+
+    .buttons .btn {
+      background-color: #e50914;
+      border: none;
+      padding: 10px 15px;
+      margin-right: 10px;
+      cursor: pointer;
+      border-radius: 5px;
+      color: white;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .buttons .btn:hover {
+      background-color: #f40612;
+      transform: scale(1.05);
+    }
+
+    .momentos {
+      padding: 30px;
+    }
+
+    .momentos h3 {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    /* Cards ajustados */
+    .galeria {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .card {
+      background: #222;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+      transform: scale(0.9);
+      transition: transform 0.4s, box-shadow 0.4s;
+      animation: zoomIn 1s ease forwards;
+    }
+
+    .card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover; /* Ajusta a imagem dentro do card */
+      display: block;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(229,9,20,0.9);
+      animation: pulse 1s infinite alternate;
+    }
+
+    /* Animação de entrada */
+    @keyframes zoomIn {
+      from {opacity: 0; transform: scale(0.7);}
+      to {opacity: 1; transform: scale(0.9);}
+    }
+
+    /* Efeito pulsante no hover */
+    @keyframes pulse {
+      from {box-shadow: 0 0 15px rgba(229,9,20,0.5);}
+      to {box-shadow: 0 0 30px rgba(229,9,20,1);}
+    }
+
+    .mensagem-secreta {
+      display: none;
+      text-align: center;
+      padding: 40px;
+      background: rgba(229,9,20,0.8);
+      color: white;
+      border-radius: 10px;
+      margin: 30px auto;
+      width: 80%;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: scale(0.9);}
+      to {opacity: 1; transform: scale(1);}
+    }
+
+    .heart {
+      position: fixed;
+      top: -10px;
+      color: red;
+      font-size: 24px;
+      animation: fall 5s linear forwards;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(100vh);
+        opacity: 0;
+      }
+    }
+
+    footer {
+      background-color: #000;
+      text-align: center;
+      padding: 15px;
+      font-size: 14px;
+      color: #aaa;
+    }
+    /* Ajustes extras para telas pequenas */
+    @media (max-width: 600px) {
+      .serie-title { font-size: 24px; }
+      .descricao { font-size: 13px; }
+      .buttons .btn { font-size: 12px; padding: 6px 10px; }
+      .card img { height: 150px; }
+    }      
+  </style>
+</head>
+<body>
+  <!-- Barra de navegação -->
+  <nav class="navbar">
+    <h1 class="logo">NETFLIX</h1>
+    <ul>
+      <li><a href="#">Início</a></li>
+      <li><a href="#">Séries</a></li>
+      <li><a href="#">Filmes</a></li>
+      <li><a href="#">Bombando</a></li>
+      <li><a href="#">Minha lista</a></li>
+      <li><a href="#">Navegar por idiomas</a></li>
+    </ul>
+  </nav>
+
+  <!-- Banner principal -->
+  <header class="banner">
+    <div class="banner-content">
+      <h2 class="serie-title">Ana e Felipe</h2>
+      <span class="top10">TOP 10</span>
+      <p class="info">05 DE OUTUBRO • 3 TEMPORADAS • ★★★★★</p>
+      <p class="descricao">
+        Nosso amor não é um conto de fadas, é um amor real, cheio de superações e cumplicidade...
+      </p>
+      <div class="buttons">
+        <button class="btn">▶️ Continuar</button>
+        <button class="btn">✔️ Favorito</button>
+        <button class="btn">👍</button>
+        <button class="btn">👎</button>
+        <button class="btn especial">💌 Surpresa</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Seção de momentos com cards -->
+  <section class="momentos">
+    <h3>Nossos Melhores Momentos</h3>
+    <div class="galeria">
+      <div class="card"><img src="img/novo.jpg.jpeg" alt="Momento 1"></div>
+      <div class="card"><img src="img/abraço.jpg.jpeg" alt="Momento 2"></div>
+      <div class="card"><img src="img/começo.jpg.jpeg" alt="Momento 3"></div>
+      <div class="card"><img src="img/praia.jpg.jpeg" alt="Momento 4"></div>
+      <div class="card"><img src="img/foto.jpg.jpeg" alt="Momento 5"></div>
+      <div class="card"><img src="img/cinema.jpg.jpeg" alt="Momento 6"></div>
+    </div>
+  </section>
+
+  <!-- Mensagem escondida -->
+  <section class="mensagem-secreta" id="mensagem">
+    <h2>💖 Ana, você é o melhor episódio da minha vida 💖</h2>
+    <p>Obrigado por cada momento, cada sorriso e cada abraço. Que nossa história tenha infinitas temporadas!</p>
+  </section>
+
+  <footer>
+    <p>Feito com amor ❤️ pra você</p>
+  </footer>
+
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    console.log("Netflix personalizado carregado!");
+    alert("Bem-vinda ao seu Netflix do amor ❤️");
+
+    // Botão surpresa
+    const btnSurpresa = document.querySelector(".btn.especial");
+    const mensagem = document.getElementById("mensagem");
+
+    btnSurpresa.addEventListener("click", () => {
+      mensagem.style.display = "block";
+      criarCoracoes();
+    });
+
+    // Função para criar corações caindo
+    function criarCoracoes() {
+      for (let i = 0; i < 15; i++) {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.textContent = "❤️";
+        heart.style.left = Math.random() * window.innerWidth + "px";
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+          heart.remove();
+        }, 5000);
+      }
+    }
+  });
+</script>
